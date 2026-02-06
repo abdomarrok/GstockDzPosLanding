@@ -1,0 +1,40 @@
+{
+  "name": "GstockDzPos - نظام نقاط البيع وتسيير المخزون",
+  "short_name": "GstockDzPos",
+  "description": "نظام نقاط البيع وتسيير المخزون المتكامل للمتاجر والمؤسسات في الجزائر",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "img/dashboard.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity",
+    "finance"
+  ],
+  "screenshots": [
+    {
+      "src": "img/dashboard.webp",
+      "sizes": "900x600",
+      "type": "image/webp",
+      "label": "GstockDzPos لوحة تحكم"
+    },
+    {
+      "src": "img/orders_list.webp",
+      "sizes": "320x192",
+      "type": "image/webp",
+      "label": "واجهة المشتريات"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "releases": [
+    {
+      "version": "3.0.0",
+      "releaseDate": "2026-02-06",
+      "downloadUrlWindows": "https://drive.google.com/file/d/1ptiKm6IEE9hQ4XyPRtQqTOT0d4X5M9DZ/view?usp=sharing",
+      "downloadUrlLinux": "",
+      "downloadUrlMac": "",
+      "features": [
+        "واجهة نقاط بيع (POS) محسنة",
+        "قائمة جانبية ذكية (Foldable Sidebar)",
+        "تصحيح نصوص اللغة العربية",
+        "نظام جديد لطباعة الإيصالات"
+      ]
+    }
+  ]
+}

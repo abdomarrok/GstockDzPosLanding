@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="GstockDzPos - نظام نقاط البيع وتسيير المخزون المتكامل للمتاجر والمؤسسات في الجزائر. واجهة كاشير احترافية، باركود، وتقارير دقيقة.">
+    <meta name="keywords" content="GstockDzPos, نقطة بيع, POS, تسيير المخزون, كاشير, الجزائر, برنامج مبيعات">
+    <meta name="author" content="GstockDzPos Team">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="GstockDzPos">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" href="img/logo 1.png" sizes="any">
+    <link rel="apple-touch-icon" href="img/logo 1.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://abdomarrok.github.io/GstockDzPos/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abdomarrok.github.io/GstockDzPos/">
+    <meta property="og:title" content="GstockDZ - نظام التسيير المخزني المتكامل">
+    <meta property="og:description" content="الحل الشامل لتسيير المخزون، المشتريات، والجرد للمؤسسات في الجزائر.">
+    <meta property="og:image" content="https://abdomarrok.github.io/GstockDzPos/img/dashboard.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GstockDZ - نظام التسيير المخزني المتكامل">
+    <meta name="twitter:description" content="الحل الشامل لتسيير المخزون، المشتريات، والجرد للمؤسسات في الجزائر.">
+    <meta name="twitter:image" content="https://abdomarrok.github.io/GstockDzPos/img/dashboard.webp">
+
+    <title>GstockDzPos - نظام نقاط البيع وتسيير المخزون</title>
+
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="manifest" href="manifest.json">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GstockDzPos",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Windows, Linux, macOS",
+      "description": "نظام نقاط البيع وتسيير المخزون المتكامل للمتاجر والمؤسسات في الجزائر",
+      "url": "https://abdomarrok.github.io/GstockDzPos/",
+      "screenshot": "https://abdomarrok.github.io/GstockDzPos/img/dashboard.webp",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "DZD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      }
+    }
+    </script>
+
+    <!-- EmailJS for Contact Form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="text-right flex flex-col min-h-screen">
+
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-gray-100" role="banner">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center flex-row-reverse">
+            <div class="flex items-center gap-2 flex-row-reverse">
+                <i class="fas fa-cash-register text-blue-700 text-2xl" aria-hidden="true"></i>
+                <h1 class="text-2xl font-bold text-gray-800 tracking-tight">Gstock<span class="text-blue-600">DzPos</span>
+                </h1>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none"
+                aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+            </button>
+            <nav class="hidden md:block" role="navigation" aria-label="القائمة الرئيسية">
+                <ul class="flex space-x-6 space-x-reverse font-semibold">
+                    <li><a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors">الميزات</a></li>
+                    <li><a href="#screenshots" class="text-gray-600 hover:text-blue-600 transition-colors">جولة في
+                            البرنامج</a></li>
+                    <li><a href="#updates" class="text-gray-600 hover:text-blue-600 transition-colors">التحديثات</a>
+                    </li>
+                    <li><a href="#pricing" class="text-gray-600 hover:text-blue-600 transition-colors">الأسعار</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">اتصل بنا</a></li>
+                    <li><button onclick="openDownloadModal()"
+                            class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition-colors">تنزيل</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <nav id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <ul class="flex flex-col p-4 space-y-3">
+                <li><a href="#features" class="block py-2 text-gray-600 hover:text-blue-600 font-medium">الميزات</a>
+                </li>
+                <li><a href="#screenshots" class="block py-2 text-gray-600 hover:text-blue-600 font-medium">جولة في
+                        البرنامج</a></li>
+                <li><a href="#updates" class="block py-2 text-gray-600 hover:text-blue-600 font-medium">التحديثات</a>
+                </li>
+                <li><button onclick="openDownloadModal()"
+                        class="block w-full text-right py-2 text-blue-600 font-bold">تنزيل التطبيق</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gradient-bg text-white pt-20 pb-24 px-4 rounded-b-[3rem] relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto text-center relative z-10">
+            <span id="heroVersionBadge"
+                class="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-semibold mb-6 border border-white/30 animate-pulse">
+                🚀 الإصدار الجديد v3.0.0 متاح الآن</span>
+
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                نظام نقاط البيع (POS) <br class="hidden sm:inline"> وتسيير المخزون المتكامل
+            </h2>
+            <p class="text-lg md:text-2xl mb-6 opacity-90 max-w-3xl mx-auto font-light">
+                واجهة كاشير احترافية، تسيير دقيق للمخزون، وتقارير شاملة للمحلات والمؤسسات الجزائرية
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 mb-10 text-sm opacity-80">
+                <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-chart-line ml-1"></i> لوحة تحكم
+                    ذكية</span>
+                <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-print ml-1"></i> تقارير
+                    احترافية</span>
+                <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-users-cog ml-1"></i> صلاحيات
+                    متقدمة</span>
+                <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-moon ml-1"></i> الوضع الليلي</span>
+                <span class="bg-white/10 px-3 py-1 rounded-full"><i class="fas fa-globe ml-1"></i> دعم الويب</span>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="openDownloadModal()"
+                    class="btn-ripple bg-white text-blue-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-gray-50 transform hover:scale-105 transition-all">
+                    <i class="fas fa-download ml-2"></i> تحميل مجاني
+                </button>
+                <a href="#features"
+                    class="btn-ripple border-2 border-white/50 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white/10 transition-all">
+                    <i class="fas fa-info-circle ml-2"></i> اكتشف المزيد
+                </a>
+            </div>
+            <div class="mt-16 -mb-48">
+                <img src="img/dashboard.webp" alt="واجهة برنامج GstockDZ" width="900" height="600"
+                    class="mx-auto rounded-xl shadow-2xl border-8 border-white/20 w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="pt-40 pb-20 px-4 bg-white">
+        <div class="container mx-auto text-center">
+            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold">الميزات الرئيسية</span>
+            <h3 class="text-3xl md:text-4xl font-bold mt-4 mb-12 text-gray-800">كل ما تحتاجه في منظومة واحدة</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow border-t-4 border-t-blue-500 transform hover:-translate-y-1">
+                    <div class="feature-icon text-5xl mb-6 text-blue-600"><i class="fas fa-cash-register"></i></div>
+                    <h4 class="text-xl font-bold mb-3">نقطة بيع (POS) احترافية</h4>
+                    <p class="text-gray-600">واجهة كاشير سريعة تدعم قارئ الباركود، الطابعات الحرارية، البيع بالكميات، والتعليق المؤقت للبيع.</p>
+                </div>
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-boxes"></i></div>
+                    <h4 class="text-xl font-bold mb-3">إدارة المخزون المتقدمة</h4>
+                    <p class="text-gray-600">تسجيل فوري لحركات الإدخال والإخراج مع تتبع الكميات والقيم المالية لكل صنف.
+                    </p>
+                </div>
+
+          
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-print"></i></div>
+                    <h4 class="text-xl font-bold mb-3">تقارير JasperReports</h4>
+                    <p class="text-gray-600">تقارير PDF احترافية لسندات الدخول والخروج والطلب بتصميم رسمي جزائري.</p>
+                </div>
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-user-shield"></i></div>
+                    <h4 class="text-xl font-bold mb-3">نظام الصلاحيات المتقدم</h4>
+                    <p class="text-gray-600">تحكم كامل في صلاحيات المستخدمين مع إخفاء الميزات حسب الدور (Admin/User).
+                    </p>
+                </div>
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-chart-area"></i></div>
+                    <h4 class="text-xl font-bold mb-3">لوحة تحكم ذكية</h4>
+                    <p class="text-gray-600">رسوم بيانية تفاعلية وإحصائيات مباشرة حول المخزون والمشتريات والاستهلاك.</p>
+                </div>
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-globe"></i></div>
+                    <h4 class="text-xl font-bold mb-3">دعم الويب (JPro)</h4>
+                    <p class="text-gray-600">إمكانية الوصول عبر المتصفح بدون تثبيت مع الحفاظ على كامل الوظائف.</p>
+                </div>
+
+                <div
+                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
+                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-moon"></i></div>
+                    <h4 class="text-xl font-bold mb-3">الوضع الليلي</h4>
+                    <p class="text-gray-600">واجهة مظلمة مريحة للعيون للعمل في الإضاءة المنخفضة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's New Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-bold">🎉 جديد</span>
+                <h3 class="text-3xl font-bold mt-4 text-gray-800">ما الجديد في الإصدار 3.0.0؟</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-blue-600"><i class="fas fa-bars"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">قائمة جانبية ذكية</h4>
+                        <p class="text-gray-600 text-sm">شريط جانبي قابل للطي لتوفير مساحة أكبر للعمل في واجهة البيع.</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-green-600"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">تقارير PDF محسّنة</h4>
+                        <p class="text-gray-600 text-sm">تصميم جديد لسندات الطلب والدخول والخروج مع دعم اللغة العربية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-purple-600"><i class="fas fa-user-lock"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">إصلاحات الصلاحيات واللغة</h4>
+                        <p class="text-gray-600 text-sm">تحسين عرض النصوص العربية وتصحيح نظام صلاحيات المستخدمين.</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-orange-600"><i class="fas fa-database"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">تحسينات قاعدة البيانات</h4>
+                        <p class="text-gray-600 text-sm">ربط محسّن بين الجداول مع ضمان سلامة البيانات.</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-cyan-600"><i class="fas fa-key"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">واجهة ترخيص جديدة</h4>
+                        <p class="text-gray-600 text-sm">تفعيل سهل عبر لصق مفتاح الترخيص مع نسخ بصمة الجهاز.</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-pink-600"><i class="fas fa-paint-brush"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">واجهة مستخدم محدّثة</h4>
+                        <p class="text-gray-600 text-sm">تصميم عصري مع تأثيرات انتقالية سلسة وألوان متناسقة.</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal bg-white p-6 rounded-xl shadow-sm border border-blue-100 flex gap-4">
+                    <div class="text-3xl text-indigo-600"><i class="fas fa-moon"></i></div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">الوضع الليلي (Dark Mode)</h4>
+                        <p class="text-gray-600 text-sm">واجهة مظلمة لراحة العيون أثناء العمل لفترات طويلة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto text-center relative">
+            <h3 class="text-3xl md:text-4xl font-bold mb-12 text-gray-800">جولة في البرنامج</h3>
+
+            <div class="relative max-w-6xl mx-auto carousel-wrapper">
+                <button onclick="scrollScreenshots(-1)" aria-label="الصورة السابقة"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-lg text-blue-600 hover:bg-blue-50 hover:scale-110 transition-all duration-300 hidden md:block">
+                    <i class="fas fa-chevron-left text-xl" aria-hidden="true"></i>
+                </button>
+                <button onclick="scrollScreenshots(1)" aria-label="الصورة التالية"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white p-4 rounded-full shadow-lg text-blue-600 hover:bg-blue-50 hover:scale-110 transition-all duration-300 hidden md:block">
+                    <i class="fas fa-chevron-right text-xl" aria-hidden="true"></i>
+                </button>
+
+                <div id="screenshots-container" role="region" aria-label="جولة البرنامج"
+                    class="flex overflow-x-scroll snap-x snap-mandatory space-x-4 space-x-reverse pb-4 px-8"
+                    onmouseenter="pauseAutoplay()" onmouseleave="resumeAutoplay()">
+
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/stockEtat.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/stockEtat.webp" alt="حالة المخزون" width="320" height="192" loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">حالة المخزون</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">متابعة الكميات والحركات لكل صنف بشكل مفصل.</p>
+                    </div>
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/login.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/login.webp" alt="تسجيل الدخول" width="320" height="192" loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">تسجيل الدخول</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">واجهة تسجيل دخول آمنة مع نظام صلاحيات متعدد.</p>
+                    </div>
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/dashboard.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/dashboard.webp" alt="لوحة التحكم" width="320" height="192" loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">لوحة التحكم الرئيسية</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">نظرة عامة سريعة على المخزون والحركات المالية.</p>
+                    </div>
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/permission_managemnt.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/permission_managemnt.webp" alt="إدارة الصلاحيات" width="320" height="192"
+                                loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">إدارة الصلاحيات</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">نظام صلاحيات متقدم للتحكم في وصول المستخدمين.</p>
+                    </div>
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/chose_mode.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/chose_mode.webp" alt="اختيار الوضع" width="320" height="192" loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">اختيار وضع العمل</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">اختيار بين وضع الخادم أو العميل للعمل الشبكي.</p>
+                    </div>
+
+                    <div class="screenshot-card p-2 bg-white rounded-xl snap-start"
+                        onclick="openImageModal('img/fiill enterprize info.webp')">
+                        <div class="overflow-hidden rounded-lg mb-4 border border-gray-200">
+                            <img src="img/fiill enterprize info.webp" alt="معلومات المؤسسة" width="320" height="192"
+                                loading="lazy"
+                                class="w-full h-48 object-cover object-top transition-transform duration-500">
+                        </div>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">إعداد المؤسسة</h4>
+                        <p class="text-sm text-gray-500 px-4 pb-4">تخصيص معلومات المؤسسة والشعار والعنوان.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div id="carousel-dots" class="carousel-dots"></div>
+
+            <!-- Autoplay Control -->
+            <div class="autoplay-indicator">
+                <button id="autoplayBtn" onclick="toggleAutoplay()" title="إيقاف/تشغيل التمرير التلقائي">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <span>تمرير تلقائي</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="updates" class="py-16 px-4 bg-white border-t border-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold">تحديثات النظام</span>
+                <h3 class="text-3xl font-bold mt-4 text-gray-800">آخر إصدارات GstockDZ</h3>
+            </div>
+
+            <div
+                class="bg-white border border-blue-100 rounded-2xl shadow-lg overflow-hidden transform transition-all hover:shadow-xl">
+                <div
+                    class="bg-gradient-to-l from-blue-700 to-blue-500 p-6 text-white flex justify-between items-center">
+                    <div>
+                        <h4 class="text-2xl font-bold flex items-center gap-2">
+                            الإصدار الحالي <span id="displayVersion"
+                                class="bg-white/20 px-3 py-1 rounded-lg text-lg">تحميل...</span>
+                        </h4>
+                        <p class="opacity-90 text-sm mt-1" id="displayDate">--/--/----</p>
+                    </div>
+                    <div class="text-4xl opacity-20"><i class="fas fa-code-branch"></i></div>
+                </div>
+                <div class="p-8">
+                    <h5 class="font-bold text-gray-700 mb-4 text-lg">أبرز التغييرات:</h5>
+                    <ul id="displayFeatures" class="space-y-3 mb-8 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-spinner fa-spin ml-2 text-blue-500"></i> جاري
+                            الاتصال بالخادم...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 px-4 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">اختر الخطة المناسبة</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-8 items-center md:items-stretch">
+                <div class="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-2">النسخة التجريبية</h4>
+                    <div class="text-4xl font-extrabold text-blue-600 mb-6">0 د.ج</div>
+                    <ul class="text-gray-600 space-y-3 mb-8 text-right">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i> تسيير المخزون
+                            الأساسي</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i> مستخدم واحد
+                            (Admin)</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i> إنشاء سندات الطلب
+                            (تجريبي)</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50"
+                        onclick="openDownloadModal()">تحميل الآن</button>
+                </div>
+                <div
+                    class="w-full max-w-sm bg-gradient-to-br from-blue-700 to-blue-500 rounded-2xl shadow-2xl p-8 text-white transform md:-translate-y-4">
+                    <h4 class="text-2xl font-bold mb-2">النسخة الاحترافية (PRO)</h4>
+                    <div class="text-4xl font-extrabold mb-6">اتصل بنا</div>
+                    <ul class="text-blue-100 space-y-3 mb-8 text-right">
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> نظام العمل عبر
+                            الشبكة</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> وحدة الجرد
+                            السنوي الكاملة</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> عدد لا محدود من
+                            المستخدمين</li>
+                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> دعم فني وتحديثات
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="block text-center w-full py-3 rounded-xl bg-white text-blue-600 font-bold hover:bg-gray-100">طلب
+                        عرض سعر</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div
+            class="container mx-auto max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
+            <div class="md:w-1/2 bg-blue-800 p-8 text-white flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-4">تواصل معنا</h3>
+                <p class="mb-6 opacity-90">نحن هنا لمرافقتكم في رقمنة تسيير مؤسستكم.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center"><i class="fas fa-phone ml-4 opacity-80"></i><span dir="ltr">+213 664
+                            641 042</span></div>
+                    <div class="flex items-center"><i
+                            class="fas fa-envelope ml-4 opacity-80"></i><span>marrokmar@gmail.com</span></div>
+                </div>
+            </div>
+            <div class="md:w-1/2 p-8">
+                <form id="contact-form" aria-label="نموذج الاتصال">
+                    <div class="mb-4">
+                        <label for="contact-name" class="sr-only">الاسم الكامل</label>
+                        <input id="contact-name" name="user_name" type="text" class="w-full px-3 py-2 border rounded-lg"
+                            placeholder="الاسم الكامل" required aria-required="true">
+                    </div>
+                    <div class="mb-4">
+                        <label for="contact-company" class="sr-only">اسم المؤسسة</label>
+                        <input id="contact-company" name="company" type="text"
+                            class="w-full px-3 py-2 border rounded-lg" placeholder="اسم المؤسسة (اختياري)">
+                    </div>
+                    <div class="mb-4">
+                        <label for="contact-email" class="sr-only">البريد الإلكتروني</label>
+                        <input id="contact-email" name="user_email" type="email"
+                            class="w-full px-3 py-2 border rounded-lg" placeholder="البريد الإلكتروني" required
+                            aria-required="true">
+                    </div>
+                    <div class="mb-4">
+                        <label for="contact-message" class="sr-only">الرسالة</label>
+                        <textarea id="contact-message" name="message" class="w-full px-3 py-2 border rounded-lg h-32"
+                            placeholder="الرسالة" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn"
+                        class="btn-ripple w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="submit-text">إرسال</span>
+                        <i id="submit-spinner" class="fas fa-spinner fa-spin hidden mr-2"></i>
+                    </button>
+                    <div id="form-message" class="hidden mt-4 p-4 rounded-lg text-center"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <footer class="bg-gray-900 text-white py-12 px-4 border-t border-gray-800" role="contentinfo">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">Gstock<span class="text-blue-500">DzPos</span></h2>
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://facebook.com/gstockdz" rel="noopener noreferrer" target="_blank"
+                    class="text-gray-400 hover:text-blue-500 transition-colors text-xl" title="Facebook"
+                    aria-label="تابعنا على Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/gstockdz" rel="noopener noreferrer" target="_blank"
+                    class="text-gray-400 hover:text-blue-400 transition-colors text-xl" title="Twitter"
+                    aria-label="تابعنا على Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com/company/gstockdz" rel="noopener noreferrer" target="_blank"
+                    class="text-gray-400 hover:text-blue-600 transition-colors text-xl" title="LinkedIn"
+                    aria-label="تابعنا على LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:marrokmar@gmail.com" rel="noopener noreferrer"
+                    class="text-gray-400 hover:text-red-400 transition-colors text-xl" title="Email"
+                    aria-label="راسلنا عبر البريد الإلكتروني">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <p class="text-gray-400 text-sm mb-2">&copy; <span id="currentYear"></span> GstockDzPos. صنع بكل ❤️ في الجزائر.
+            </p>
+            <p class="text-gray-500 text-xs">تطوير وتصميم: فريق GstockDzPos</p>
+        </div>
+    </footer>
+
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeDownloadModal()" aria-label="إغلاق">&times;</span>
+            <div class="mb-6 text-blue-600 text-5xl"><i class="fas fa-cloud-download-alt"></i></div>
+            <h4 class="text-2xl font-bold mb-2 text-gray-800">تنزيل GstockDzPos</h4>
+            <p class="text-gray-600 mb-6">اختر الإصدار ونظام التشغيل المناسب لك:</p>
+
+            <div id="versionsContainer" class="flex flex-col gap-4 max-h-96 overflow-y-auto p-2">
+                <div class="text-center text-gray-500 py-4">جاري تحميل الإصدارات المتاحة...</div>
+            </div>
+
+            <button onclick="closeDownloadModal()"
+                class="text-gray-500 hover:text-gray-800 font-semibold mt-6 text-sm underline">إغلاق</button>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeImageModal(event)">
+        <button class="modal-nav prev" onclick="event.stopPropagation(); navigateImage(-1)" title="السابق">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="modal-content">
+            <span class="close-button" onclick="closeImageModal(event)" aria-label="إغلاق">&times;</span>
+            <img id="fullImage" src="" alt="صورة مكبرة لواجهة البرنامج">
+        </div>
+        <button class="modal-nav next" onclick="event.stopPropagation(); navigateImage(1)" title="التالي">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="image-counter"><span id="currentImageIndex">1</span> / <span id="totalImages">10</span></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i id="toast-icon" class="fas"></i>
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Contact Form Handler -->
+    <script src="js/contact-form.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
