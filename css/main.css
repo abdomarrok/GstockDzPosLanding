@@ -458,3 +458,14 @@ textarea:focus-visible {
     background: #1d4ed8;
     transform: translateY(-5px);
 }
+
+/* Feature Tabs Styles */
+.active-tab {
+    color: #2563eb;
+    border-bottom: 3px solid #2563eb;
+    background-color: #eff6ff;
+}
+
+#features button {
+    transition: all 0.3s ease;
+}

@@ -171,67 +171,25 @@
         </div>
     </section>
 
-    <section id="features" class="pt-40 pb-20 px-4 bg-white">
-        <div class="container mx-auto text-center">
-            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold">الميزات الرئيسية</span>
-            <h3 class="text-3xl md:text-4xl font-bold mt-4 mb-12 text-gray-800">كل ما تحتاجه في منظومة واحدة</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="features" class="py-24 bg-gray-50 relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16 space-y-4 scroll-reveal">
+                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm bg-blue-50 inline-block px-4 py-1 rounded-full">كل ما تحتاجه</h2>
+                <h3 class="text-4xl lg:text-5xl font-extrabold text-slate-900">نظام واحد، حلول لامتناهية</h3>
+                <p class="text-lg text-slate-600 font-medium">تم تصميم GstockDzPos ليكون سهلاً للكاشير وقوياً للمدير.</p>
+            </div>
 
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow border-t-4 border-t-blue-500 transform hover:-translate-y-1">
-                    <div class="feature-icon text-5xl mb-6 text-blue-600"><i class="fas fa-cash-register"></i></div>
-                    <h4 class="text-xl font-bold mb-3">نقطة بيع (POS) احترافية</h4>
-                    <p class="text-gray-600">واجهة كاشير سريعة تدعم قارئ الباركود، الطابعات الحرارية، البيع بالكميات، والتعليق المؤقت للبيع.</p>
-                </div>
+            <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-slate-200 scroll-reveal">
+                <button onclick="switchTab('cashier')" id="tab-cashier" class="px-8 py-4 font-bold transition-all text-lg rounded-t-2xl hover:bg-white active-tab">واجهة البيع</button>
+                <button onclick="switchTab('manager')" id="tab-manager" class="px-8 py-4 font-bold transition-all text-slate-400 hover:text-slate-600 text-lg rounded-t-2xl hover:bg-white">إدارة المخزون</button>
+                <button onclick="switchTab('reports')" id="tab-reports" class="px-8 py-4 font-bold transition-all text-slate-400 hover:text-slate-600 text-lg rounded-t-2xl hover:bg-white">التقارير</button>
+            </div>
 
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-boxes"></i></div>
-                    <h4 class="text-xl font-bold mb-3">إدارة المخزون المتقدمة</h4>
-                    <p class="text-gray-600">تسجيل فوري لحركات الإدخال والإخراج مع تتبع الكميات والقيم المالية لكل صنف.
-                    </p>
-                </div>
-
-          
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-print"></i></div>
-                    <h4 class="text-xl font-bold mb-3">تقارير JasperReports</h4>
-                    <p class="text-gray-600">تقارير PDF احترافية لسندات الدخول والخروج والطلب بتصميم رسمي جزائري.</p>
-                </div>
-
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-user-shield"></i></div>
-                    <h4 class="text-xl font-bold mb-3">نظام الصلاحيات المتقدم</h4>
-                    <p class="text-gray-600">تحكم كامل في صلاحيات المستخدمين مع إخفاء الميزات حسب الدور (Admin/User).
-                    </p>
-                </div>
-
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-chart-area"></i></div>
-                    <h4 class="text-xl font-bold mb-3">لوحة تحكم ذكية</h4>
-                    <p class="text-gray-600">رسوم بيانية تفاعلية وإحصائيات مباشرة حول المخزون والمشتريات والاستهلاك.</p>
-                </div>
-
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-globe"></i></div>
-                    <h4 class="text-xl font-bold mb-3">دعم الويب (JPro)</h4>
-                    <p class="text-gray-600">إمكانية الوصول عبر المتصفح بدون تثبيت مع الحفاظ على كامل الوظائف.</p>
-                </div>
-
-                <div
-                    class="scroll-reveal p-8 rounded-2xl shadow-sm border border-gray-100 bg-white hover:shadow-xl transition-shadow">
-                    <div class="feature-icon text-5xl mb-6"><i class="fas fa-moon"></i></div>
-                    <h4 class="text-xl font-bold mb-3">الوضع الليلي</h4>
-                    <p class="text-gray-600">واجهة مظلمة مريحة للعيون للعمل في الإضاءة المنخفضة.</p>
-                </div>
+            <div id="tab-content" class="grid lg:grid-cols-3 gap-8 min-h-[300px]">
+                <!-- Content injected by JS -->
             </div>
         </div>
     </section>
-
     <!-- What's New Section -->
     <section class="py-16 px-4 bg-gradient-to-br from-blue-50 to-indigo-50 border-y border-blue-100">
         <div class="container mx-auto max-w-5xl">
@@ -253,7 +211,7 @@
                     <div class="text-3xl text-green-600"><i class="fas fa-file-pdf"></i></div>
                     <div>
                         <h4 class="font-bold text-lg mb-2">تقارير PDF محسّنة</h4>
-                        <p class="text-gray-600 text-sm">تصميم جديد لسندات الطلب والدخول والخروج مع دعم اللغة العربية.
+                        <p class="text-gray-600 text-sm">تصميم جديد لسندات الدخول والخروج مع دعم اللغة العربية.
                         </p>
                     </div>
                 </div>
@@ -442,8 +400,6 @@
                             الأساسي</li>
                         <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i> مستخدم واحد
                             (Admin)</li>
-                        <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i> إنشاء سندات الطلب
-                            (تجريبي)</li>
                     </ul>
                     <button
                         class="w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50"
@@ -456,8 +412,6 @@
                     <ul class="text-blue-100 space-y-3 mb-8 text-right">
                         <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> نظام العمل عبر
                             الشبكة</li>
-                        <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> وحدة الجرد
-                            السنوي الكاملة</li>
                         <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> عدد لا محدود من
                             المستخدمين</li>
                         <li class="flex items-center"><i class="fas fa-check text-yellow-300 ml-2"></i> دعم فني وتحديثات
@@ -595,6 +549,9 @@
 
     <!-- Contact Form Handler -->
     <script src="js/contact-form.js"></script>
+
+    <!-- Tabs Logic -->
+    <script src="js/tabs.js"></script>
 
     <!-- Main JavaScript -->
     <script src="js/main.js"></script>
